@@ -1,4 +1,7 @@
 
+using CabManagementSystems.Data;
+using CabManagementSystems.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

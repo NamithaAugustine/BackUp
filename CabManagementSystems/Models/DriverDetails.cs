@@ -17,6 +17,7 @@ namespace CabManagementSystems.Models
     //}
     public class DriverDetails
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
 
         public DateTime Dob { get; set; }

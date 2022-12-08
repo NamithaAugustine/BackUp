@@ -1,4 +1,6 @@
-﻿namespace CabManagementSystems.Models.ViewModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CabManagementSystems.Models.ViewModel
 {
     public class EditViewModel
     {

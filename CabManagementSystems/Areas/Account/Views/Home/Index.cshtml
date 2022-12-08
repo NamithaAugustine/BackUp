@@ -1,4 +1,5 @@
-﻿@inject UserManager<ApplicationUser> _userManager
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> _userManager
 @inject SignInManager<ApplicationUser> _signinManager
 @{
     ApplicationUser appUser = null;

@@ -46,4 +46,12 @@
     <Content Include="Areas\Driver\Views\Home\Register.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Areas\Driver\Views\Home\Confirm.cshtml" />
+  </ItemGroup>
+
 </Project>

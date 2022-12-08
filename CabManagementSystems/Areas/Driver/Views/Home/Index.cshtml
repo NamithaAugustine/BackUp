@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Booking>
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<Booking>
 @inject UserManager<ApplicationUser> _userManager
 @inject SignInManager<ApplicationUser> _signinManager
 @{
@@ -32,7 +33,7 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        if(item.DriverId==1)
+                        if (item.DriverConfirmed == false)
                         {
                           <tr>
                             <td>@item.From</td>

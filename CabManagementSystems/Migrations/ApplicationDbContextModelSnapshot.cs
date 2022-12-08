@@ -46,9 +46,9 @@ namespace CabManagementSystems.Migrations
                     b.Property<bool>("DriverConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("DriverId")
+                    b.Property<string>("DriverId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("From")
                         .HasColumnType("int");
@@ -87,11 +87,9 @@ namespace CabManagementSystems.Migrations
 
             modelBuilder.Entity("CabManagementSystems.Models.DriverDetails", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()

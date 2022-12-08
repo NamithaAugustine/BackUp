@@ -1,5 +1,7 @@
-﻿using CabManagementSystems.Models;
+﻿using CabManagementSystems.Data;
+using CabManagementSystems.Models;
 using CabManagementSystems.Models.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -51,7 +53,9 @@ namespace CabManagementSystems.Areas.Driver.Controllers
         public async Task<IActionResult> Confirm(Booking model)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            //_db.Bookings.Where(book => book.ApplicationUserId == model.ApplicationUserId).FirstAsync().Result.DriverConfirmed = true;
             model.DriverId = user.Id;
+            model.DriverConfirmed = true;
             return View(user);
         }
 
@@ -177,6 +181,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.Email = model.Email;
+            
 
             await _userManager.UpdateAsync(user);
             //var result = await _userManager.CreateAsync(user, model.Password);

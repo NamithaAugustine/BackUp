@@ -1,4 +1,6 @@
-﻿namespace CabManagementSystems.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CabManagementSystems.Models
 {
     public class Place
     {

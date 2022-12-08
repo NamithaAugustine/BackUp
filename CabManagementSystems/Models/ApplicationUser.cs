@@ -1,4 +1,7 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+
 namespace CabManagementSystems.Models
 {
     public enum Gender

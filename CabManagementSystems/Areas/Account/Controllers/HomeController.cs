@@ -1,4 +1,5 @@
-﻿using CabManagementSystems.Models;
+﻿using CabManagementSystems.Data;
+using CabManagementSystems.Models;
 using CabManagementSystems.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -158,7 +159,7 @@ namespace CabManagementSystems.Areas.Account.Controllers
                 From = model.From,
                 Date = model.Date,
                 ApplicationUserId = user.Id,
-                DriverId = "1"
+                DriverId = "4c370f12-f455-4adc-9b51-9f4b1b0dce17"
             }) ;
             await _db.SaveChangesAsync();
 

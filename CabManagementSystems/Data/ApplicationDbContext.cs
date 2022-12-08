@@ -1,4 +1,8 @@
 ﻿
+using CabManagementSystems.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
 namespace CabManagementSystems.Data
 {
     public class ApplicationDbContext : IdentityDbContext
