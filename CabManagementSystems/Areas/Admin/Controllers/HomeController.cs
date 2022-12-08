@@ -30,6 +30,13 @@ namespace CabManagementSystems.Areas.Admin.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
+
+        public IActionResult Index()
+        {
+            return View();
+            //return View("Index");
+        }
+
         [HttpGet]
         //[Route("[area]/login")]
         public IActionResult Login()
@@ -55,11 +62,22 @@ namespace CabManagementSystems.Areas.Admin.Controllers
 
             if (res.Succeeded && model.Email == "admin@admin.com")
             {
-                //return RedirectToAction("Index", "Home", new {Area=""});
-                return Redirect("/");
+                return RedirectToAction("Index", "Home", new {Area="Admin"});
+                //return Redirect("/");
             }
             ModelState.AddModelError("", "Invalid email / password");
             return View(model);
+        }
+
+        public IActionResult Customer()
+        {
+            return View(_db.Users.ToList());
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home", new { Area = "Admin" });
         }
 
     }

@@ -4,6 +4,7 @@ using CabManagementSystems.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Data;
 
@@ -41,6 +42,21 @@ namespace CabManagementSystems.Areas.Account.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Wait(int id)
+        {
+            Console.WriteLine("id is "+id);
+            //var user = await _userManager.GetUserAsync(User);
+            var booking = await _db.Bookings.FirstOrDefaultAsync(m => m.Id == id);
+            //if(booking.DriverConfirmed==false)
+            //{
+
+            //}
+            Console.WriteLine(booking.From);
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -163,7 +179,7 @@ namespace CabManagementSystems.Areas.Account.Controllers
             }) ;
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("Type", "Home", new { Area = "Account" });
+            return RedirectToAction("Wait", "Home", new { Area = "Account" });
 
         }
 

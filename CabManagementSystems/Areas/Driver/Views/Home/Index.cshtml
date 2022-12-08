@@ -39,7 +39,7 @@
                             <td>@item.From</td>
                             <td>@item.To</td>
                             <td>@item.Date</td>
-                            <td><a class="btn btn-success" asp-action="Confirm" asp-controller="Home" asp-area="Driver"><span>Confirm</span></a></td>
+                            <td><a class="btn btn-success" asp-action="Confirm" asp-controller="Home" asp-area="Driver" asp-route-id="@item.Id"><span>Confirm</span></a></td>
                         </tr>  
                         }                        
                     }
