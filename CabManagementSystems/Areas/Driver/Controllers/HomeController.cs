@@ -43,7 +43,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
         //    return View(user);
         //}
         
-        public IActionResult Index()
+        public IActionResult DriverIndex()
         {
             return View(_db.Bookings.ToList());
             //return View("Index");
@@ -96,7 +96,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
             var res = await _signInManager.PasswordSignInAsync(user, model.Password, false, true);
             if (res.Succeeded)
             {
-                return RedirectToAction("Index", "Home", new { Area = "Driver" });
+                return RedirectToAction("DriverIndex", "Home", new { Area = "Driver" });
 
             }
             ModelState.AddModelError(nameof(model.Password), "Invalid username/password");
@@ -141,7 +141,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
             {
                 _db.Drivers.Add(user1);
                 await _db.SaveChangesAsync();
-                return RedirectToAction("Index", "Home", new { Area = "Driver" });
+                return RedirectToAction("DriverIndex", "Home", new { Area = "Driver" });
             }
             foreach (var item in result.Errors)
             {
@@ -154,7 +154,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home", new { Area = "Driver" });
+            return RedirectToAction("DriverIndex", "Home", new { Area = "Driver" });
         }
 
 
@@ -195,7 +195,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
             //var result = await _userManager.CreateAsync(user, model.Password);
             await _db.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));,
-            return RedirectToAction("Index", "Home", new { Area = "Driver" });
+            return RedirectToAction("DriverIndex", "Home", new { Area = "Driver" });
         }
 
         public async Task<IActionResult> Delete()
@@ -208,7 +208,7 @@ namespace CabManagementSystems.Areas.Driver.Controllers
             _db.ApplicationUsers.Remove(user);
             await _db.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
-            return RedirectToAction("Index", "Home", new { Area = "Driver" });
+            return RedirectToAction("DriverIndex", "Home", new { Area = "Driver" });
         }
 
     }

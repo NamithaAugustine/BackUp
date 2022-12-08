@@ -30,6 +30,14 @@ namespace CabManagementSystems.Areas.Account.Controllers
             _roleManager = roleManager;
         }
 
+        public async Task<IActionResult> Payment()
+        {
+            var x = _db.Bookings.Where(i => i.ApplicationUserId == _userManager.GetUserAsync(User).Result.Id).ToList();
+            return View(x);
+        }
+
+
+
         [HttpGet]
         public async Task<IActionResult> Profile()
         {
@@ -43,19 +51,21 @@ namespace CabManagementSystems.Areas.Account.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Wait(int id)
-        {
-            Console.WriteLine("id is "+id);
-            //var user = await _userManager.GetUserAsync(User);
-            var booking = await _db.Bookings.FirstOrDefaultAsync(m => m.Id == id);
-            //if(booking.DriverConfirmed==false)
-            //{
+        //[HttpGet]
+        //public async Task<IActionResult> Wait(int id)
+        //{
+        //    Console.WriteLine("id is "+id);
+        //    //var user = await _userManager.GetUserAsync(User);
+        //    var booking = await _db.Bookings.FirstOrDefaultAsync(m => m.Id == id);
+        //    //if(booking.DriverConfirmed==false)
+        //    //{
 
-            //}
-            Console.WriteLine(booking.From);
-            return View();
-        }
+        //    //}
+        //    Console.WriteLine(booking.From);
+        //    return View();
+        //}
+
+
 
         [HttpGet]
         public IActionResult Login()
@@ -153,6 +163,7 @@ namespace CabManagementSystems.Areas.Account.Controllers
         [HttpGet]
         public IActionResult Book()
         {
+
             return View();
 
         }
@@ -179,9 +190,12 @@ namespace CabManagementSystems.Areas.Account.Controllers
             }) ;
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("Wait", "Home", new { Area = "Account" });
+            return RedirectToAction("Index", "Home", new { Area = "Account" });
 
         }
+
+
+
 
         [HttpGet]
         public IActionResult Type()
@@ -237,6 +251,11 @@ namespace CabManagementSystems.Areas.Account.Controllers
             await _db.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
             return RedirectToAction("Index", "Home", new { Area = "Account" });
+        }
+
+        public IActionResult Pay()
+        {
+            return View();
         }
 
     }

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Booking>
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<div>
+    <table class="table table-hover"> 
+
+        <thead></thead>
+
+        <tbody>
+            
+            @foreach(var i in Model)
+            {
+                <tr>
+                    <td>@i.From</td>
+                    <td>@i.To</td>
+                    <td>@i.Date</td>
+                    
+                    @if(i.DriverConfirmed == true){
+                        <td><a class="btn btn-dark" asp-area="Account" asp-controller="Home" asp-action="Pay">Pay</a> </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <span class="text-danger">Booking Not Confirmed</span>
+
+                        </td>
+                    }
+
+</tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

@@ -40,7 +40,7 @@
 
   <ItemGroup>
     <Content Include="Areas\Driver\Views\Home\Edit.cshtml" />
-    <Content Include="Areas\Driver\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Driver\Views\Home\DriverIndex.cshtml" />
     <Content Include="Areas\Driver\Views\Home\Login.cshtml" />
     <Content Include="Areas\Driver\Views\Home\Profile.cshtml" />
     <Content Include="Areas\Driver\Views\Home\Register.cshtml" />
