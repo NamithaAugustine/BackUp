@@ -35,6 +35,8 @@ namespace CabManagementSystems.Models
         [ForeignKey(nameof(Driver))]
         public string DriverId { get; set; }
 
+        public bool? Payed { get; set; } = false;
+
         public int Distance { get; set; }
 
     }

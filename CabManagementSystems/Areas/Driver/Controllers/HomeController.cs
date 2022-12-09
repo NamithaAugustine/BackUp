@@ -60,10 +60,6 @@ namespace CabManagementSystems.Areas.Driver.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var cabDriver = await _db.Drivers.FirstOrDefaultAsync(m => m.ApplicationUserId == user.Id);
-            //_db.Bookings.Where(book => book.ApplicationUserId == model.ApplicationUserId).FirstAsync().Result.DriverConfirmed = true;
-            //model.DriverId = user.Id;
-            //model.DriverConfirmed = true;
-            Console.WriteLine("id is"+id);
             var booking = await _db.Bookings.FirstOrDefaultAsync(m=>m.Id == id);
             
             booking.DriverId = cabDriver.Id;

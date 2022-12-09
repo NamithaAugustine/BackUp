@@ -119,12 +119,13 @@
                                 </p>
                                 <p class="mb-0">
                                     <span class="fw-bold">Distance:</span><span class="c-green">
-                                        4 Km
+                                        @Model.Distance
                                     </span>
                                 </p>
                                 <p class="mb-0">
                                     <span class="fw-bold">Price:</span>
-                                    <span class="c-green">:452.90</span>
+                                    <span class="c-green">
+                                        :@(Model.Distance * 100 )</ span >
                                 </p>
                                
                             </div>

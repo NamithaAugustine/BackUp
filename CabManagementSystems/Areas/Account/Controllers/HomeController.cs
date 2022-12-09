@@ -180,13 +180,23 @@ namespace CabManagementSystems.Areas.Account.Controllers
             {
                 return View(model);
             }
+            IEnumerable<Place> locations =  _db.Places.ToList();
+            int distance=0;
+            foreach (var item in locations)
+            {
+                if (item.From == model.From && item.To == model.To)
+                {
+                    distance = item.Distance;
+                }
+            }
             _db.Bookings.Add(new Booking()
             {
                 To = model.To,
                 From = model.From,
                 Date = model.Date,
                 ApplicationUserId = user.Id,
-                DriverId = "4c370f12-f455-4adc-9b51-9f4b1b0dce17"
+                DriverId = "4c370f12-f455-4adc-9b51-9f4b1b0dce17",
+                Distance = distance
             }) ;
             await _db.SaveChangesAsync();
 
@@ -256,9 +266,12 @@ namespace CabManagementSystems.Areas.Account.Controllers
         public async Task<IActionResult> Pay(int id)
         {
 
-            Console.WriteLine("id is"+id);
+            
             var book = await _db.Bookings.FindAsync(id);
-            Console.WriteLine(book.From);
+            
+            book.Payed= true;
+            await _db.SaveChangesAsync();
+            Console.WriteLine("Payment is"+book.Payed);
             return View(book);
         }
 
