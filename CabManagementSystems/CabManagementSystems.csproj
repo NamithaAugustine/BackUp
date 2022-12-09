@@ -54,4 +54,8 @@
     <Content Include="Areas\Driver\Views\Home\Confirm.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Areas\Driver\Views\Home\ShowRide.cshtml" />
+  </ItemGroup>
+
 </Project>

@@ -42,7 +42,13 @@ namespace CabManagementSystems.Areas.Driver.Controllers
 
         //    return View(user);
         //}
-        
+
+        public async Task<IActionResult> ShowRide()
+        {
+            var book = _db.Bookings.Where(i => i.ApplicationUserId == _userManager.GetUserAsync(User).Result.Id).ToList();
+            return View(book);
+        }
+
         public IActionResult DriverIndex()
         {
             return View(_db.Bookings.ToList());

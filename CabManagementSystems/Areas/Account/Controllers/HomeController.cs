@@ -32,8 +32,8 @@ namespace CabManagementSystems.Areas.Account.Controllers
 
         public async Task<IActionResult> Payment()
         {
-            var x = _db.Bookings.Where(i => i.ApplicationUserId == _userManager.GetUserAsync(User).Result.Id).ToList();
-            return View(x);
+            var book = _db.Bookings.Where(i => i.ApplicationUserId == _userManager.GetUserAsync(User).Result.Id).ToList();
+            return View(book);
         }
 
 
@@ -253,9 +253,13 @@ namespace CabManagementSystems.Areas.Account.Controllers
             return RedirectToAction("Index", "Home", new { Area = "Account" });
         }
 
-        public IActionResult Pay()
+        public async Task<IActionResult> Pay(int id)
         {
-            return View();
+
+            Console.WriteLine("id is"+id);
+            var book = await _db.Bookings.FindAsync(id);
+            Console.WriteLine(book.From);
+            return View(book);
         }
 
     }

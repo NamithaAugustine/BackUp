@@ -1,4 +1,4 @@
-﻿
+﻿@model Booking
 @{
     ViewData["Title"] = "Pay";
 }
@@ -68,23 +68,23 @@
                     <div class="collapse p-3 pt-0" id="collapseExample">
                         <div class="row">
                             <div class="col-8">
-                                <p class="h4 mb-0">Summary</p>
+                                <p class="h4 mb-0">Details</p>
                                 <p class="mb-0">
-                                    <span class="fw-bold">Product:</span><span class="c-green">
-                                        : Name of
-                                        product
+                                    <span class="fw-bold">From:</span><span class="c-green">
+                                        @Model.From
                                     </span>
                                 </p>
                                 <p class="mb-0">
-                                    <span class="fw-bold">Price:</span><span class="c-green">:$452.90</span>
+                                    <span class="fw-bold">To:</span><span class="c-green">@Model.To</span>
                                 </p>
                                 <p class="mb-0">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
-                                    nihil neque
-                                    quisquam aut
-                                    repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
-                                    quis,
-                                    iste harum ipsum hic, nemo qui!
+                                    <span class="fw-bold">Date:</span><span class="c-green">@Model.Date</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Distance:</span><span class="c-green">@Model.Distance</span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Payment:</span><span class="c-green">"750"</span>
                                 </p>
                             </div>
                         </div>
@@ -106,25 +106,27 @@
                     <div class="collapse show p-3 pt-0" id="collapseExample">
                         <div class="row">
                             <div class="col-lg-5 mb-lg-0 mb-3">
-                                <p class="h4 mb-0">Summary</p>
+                                <p class="h4 mb-0">Details</p>
                                 <p class="mb-0">
-                                    <span class="fw-bold">Product:</span><span class="c-green">
-                                        : Name of
-                                        product
+                                    <span class="fw-bold">From:</span><span class="c-green">
+                                       @Model.From
+                                    </span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">To:</span><span class="c-green">
+                                        @Model.To
+                                    </span>
+                                </p>
+                                <p class="mb-0">
+                                    <span class="fw-bold">Distance:</span><span class="c-green">
+                                        4 Km
                                     </span>
                                 </p>
                                 <p class="mb-0">
                                     <span class="fw-bold">Price:</span>
-                                    <span class="c-green">:$452.90</span>
+                                    <span class="c-green">:452.90</span>
                                 </p>
-                                <p class="mb-0">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
-                                    nihil neque
-                                    quisquam aut
-                                    repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
-                                    quis,
-                                    iste harum ipsum hic, nemo qui!
-                                </p>
+                               
                             </div>
                             <div class="col-lg-7">
                                 <form action="" class="form">

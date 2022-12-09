@@ -6,7 +6,11 @@
 <div>
     <table class="table table-hover"> 
 
-        <thead></thead>
+        <thead>
+            <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+        </thead>
 
         <tbody>
             
@@ -18,7 +22,7 @@
                     <td>@i.Date</td>
                     
                     @if(i.DriverConfirmed == true){
-                        <td><a class="btn btn-dark" asp-area="Account" asp-controller="Home" asp-action="Pay">Pay</a> </td>
+                        <td><a class="btn btn-dark" asp-route-id="@i.Id" asp-area="Account" asp-controller="Home" asp-action="Pay">Pay</a> </td>
                     }
                     else
                     {
